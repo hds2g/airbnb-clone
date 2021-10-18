@@ -84,6 +84,8 @@ class RoomAdmin(admin.ModelAdmin):
         # print(obj.amenities.all())
         return obj.amenities.count()
 
+    count_amenities.short_description = "Amenity Count"
+
     def count_photos(self, obj):
         return obj.photos.count()
 
