@@ -1,22 +1,7 @@
 from django.utils import timezone
 from django.views.generic import ListView
+from django.shortcuts import render
 from . import models
-
-"""
-def all_rooms(request):
-    page = request.GET.get("page", 1)
-
-    room_list = models.Room.objects.all()
-    paginator = Paginator(room_list, 10, orphans=5)
-    try:
-
-        rooms = paginator.page(int(page))
-        return render(request, "room_views, {"page": rooms})
-    except EmptyPage:
-        return redirect("/")
-
-    # print(dir(rooms))
-"""
 
 
 class HomeView(ListView):
@@ -34,3 +19,7 @@ class HomeView(ListView):
         now = timezone.now()
         context["now"] = now
         return context
+
+
+def room_detail(request, pk):
+    return render(request, "rooms/detail.html")
