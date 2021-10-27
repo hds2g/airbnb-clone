@@ -104,5 +104,9 @@ class Room(core_models.TimeStampedModel):
         else:
             return 0
 
-    def get_absolute_url(self):
+    def get_absolute_url(self):  # show "View on site" in admin panel
         return reverse("rooms:detail", kwargs={"pk": self.pk})
+
+    def first_photo(self):
+        (photo,) = self.photos.all()[:1]  # get first array
+        return photo.file.url
