@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.views.generic import ListView, DetailView, View
+from django.views.generic import ListView, DetailView, View, UpdateView
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.shortcuts import render
@@ -16,7 +16,7 @@ class HomeView(ListView):
     paginate_by = 12
     paginate_orphans = 5
     ordering = "created"
-    context_object_name = "rooms"
+    context_object_name = "potato"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -108,3 +108,30 @@ class SearchView(View):
             form = forms.SearchForm()
 
         return render(request, "rooms/search.html", {"form": form})
+
+
+class EditRoomView(UpdateView):
+    """EditRoomView Definition"""
+
+    model = models.Room
+    template_name = "rooms/room_edit.html"
+
+    fields = (
+        "name",
+        "description",
+        "country",
+        "city",
+        "price",
+        "address",
+        "guests",
+        "beds",
+        "bedrooms",
+        "baths",
+        "check_in",
+        "check_out",
+        "instant_book",
+        "room_type",
+        "amenities",
+        "facilities",
+        "house_rules",
+    )
