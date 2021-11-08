@@ -40,6 +40,7 @@ class SignUpForm(forms.ModelForm):
     )
 
     def clean_email(self):
+        # https://docs.djangoproject.com/en/3.2/ref/forms/validation/
         email = self.cleaned_data.get("email")
         try:
             models.User.objects.get(email=email)

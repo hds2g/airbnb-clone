@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.views.generic import ListView, DetailView, View, UpdateView
+from django.views.generic import ListView, DetailView, View, UpdateView, FormView
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse
 from django.shortcuts import render
@@ -187,3 +187,14 @@ class EditPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateVie
     def get_success_url(self):
         room_pk = self.kwargs.get("room_pk")
         return reverse("rooms:photos", kwargs={"pk": room_pk})
+
+
+class AddPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, FormView):
+    model = models.Photo
+    template_name = "rooms/photo_create.html"
+    fields = ("caption", "file")
+    form_class = forms.CreatePhotoForm
+
+    def form_valid(self, form):
+        pk = self.kwargs.get("pk")
+        form.save(pk)
