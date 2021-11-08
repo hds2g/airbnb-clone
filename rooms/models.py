@@ -108,7 +108,11 @@ class Room(core_models.TimeStampedModel):
         return reverse("rooms:detail", kwargs={"pk": self.pk})
 
     def first_photo(self):
-        (photo,) = self.photos.all()[:1]  # get first array
+        try:
+            (photo,) = self.photos.all()[:1]
+            return photo.file.url
+        except ValueError:
+            return None  # print(f"first_photo: {photo}")
         return photo.file.url
 
     def get_next_four_photos(self):
