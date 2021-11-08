@@ -196,7 +196,9 @@ class AddPhotoView(user_mixins.LoggedInOnlyView, FormView):
     form_class = forms.CreatePhotoForm
 
     def form_valid(self, form):
-        pk = self.kwargs.get("pk")
+        pk = self.kwargs.get("pk")  # room's pk
+        print(f"AddPhotoView: form_valid: {pk}")
         form.save(pk)
+
         messages.success(self.request, "Photo Uploaded")
         return redirect(reverse("rooms:photos", kwargs={"pk": pk}))

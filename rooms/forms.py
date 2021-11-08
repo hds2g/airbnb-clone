@@ -37,4 +37,5 @@ class CreatePhotoForm(forms.ModelForm):
         photo = super().save(commit=False)
         room = models.Room.objects.get(pk=pk)
         photo.room = room
+        print("CreatePhotoForm: save()")
         photo.save()
