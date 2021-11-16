@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 05:33+0900\n"
+"POT-Creation-Date: 2021-11-17 06:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr ""
 msgid "Search By City"
 msgstr "場所で検索"
 
-#: templates/partials/footer.html:4
+#: templates/partials/footer.html:5
 msgid "Please don't copy us."
 msgstr "おはようございます。"
+
+#: templates/partials/footer.html:7
+msgid "All rights reserved"
+msgstr ""
