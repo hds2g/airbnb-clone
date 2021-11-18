@@ -1,5 +1,6 @@
 import uuid
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.core.mail import send_mail
@@ -16,15 +17,18 @@ class User(AbstractUser):
     GENDER_OTHER = "other"
 
     GENDER_CHOICES = (
-        (GENDER_MALE, "Male"),
-        (GENDER_FEMALE, "Female"),
-        (GENDER_OTHER, "Other"),
+        (GENDER_MALE, _("Male")),
+        (GENDER_FEMALE, _("Female")),
+        (GENDER_OTHER, _("Other")),
     )
 
     LANGUAGE_ENGLISH = "en"
     LANGUAGE_KOREAN = "kr"
 
-    LANGUAGE_CHOICES = ((LANGUAGE_ENGLISH, "English"), (LANGUAGE_KOREAN, "Korean"))
+    LANGUAGE_CHOICES = (
+        (LANGUAGE_ENGLISH, _("English")),
+        (LANGUAGE_KOREAN, _("Korean")),
+    )
 
     CURRENCY_USD = "usd"
     CURRENCY_KRW = "krw"

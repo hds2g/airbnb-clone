@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 06:23+0900\n"
+"POT-Creation-Date: 2021-11-19 08:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,4 +27,33 @@ msgstr "おはようございます。"
 
 #: templates/partials/footer.html:7
 msgid "All rights reserved"
-msgstr ""
+msgstr "ありがとうございます。"
+
+#: templates/rooms/room_list.html:27
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "ページ %(current_page)s の %(total_pages)s"
+
+#: users/mixins.py:26
+msgid "Can't go there"
+msgstr "できません。"
+
+#: users/models.py:20
+msgid "Male"
+msgstr "男性"
+
+#: users/models.py:21
+msgid "Female"
+msgstr "女性"
+
+#: users/models.py:22
+msgid "Other"
+msgstr "その他"
+
+#: users/models.py:29
+msgid "English"
+msgstr "英語"
+
+#: users/models.py:30
+msgid "Korean"
+msgstr "韓国"
